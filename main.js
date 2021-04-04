@@ -41,11 +41,12 @@ function animate() {
         obstalesArr[i].update();
         obstalesArr[i].draw('img/stone.png')
     }
-    ctx.fillStyle = 'white';
+    //ctx.fillStyle = 'white';
     ctx.font = '60px Georgia'
-    ctx.strokeText(score, canvas.width - 50, 60)
-    ctx.fillStyle('#35b5fd')
-    ctx.fillText(score, canvas.width - 50, 60)
+    ctx.lineWidth = '5px'
+    ctx.strokeText(score, canvas.width - 50, 70)
+    ctx.fillStyle = '#35b5fd'
+    ctx.fillText(score, canvas.width - 50, 70)
 
     if (key === 'ArrowLeft') {
         player.moveLeft()
