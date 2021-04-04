@@ -1,0 +1,15 @@
+﻿body {
+    background-color: #081d32;
+    /*background-image: url('img/space1.png');
+    background-size: cover;
+    background-position: center 10%*/
+}
+#canvas1 {
+    position: absolute;
+    top: 0;
+    left: 60%;
+   // transform: translate(-50%,-50%);
+    width: 40%;
+    height: 100%;
+   // border: 2px solid black;
+}
