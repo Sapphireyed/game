@@ -88,10 +88,25 @@ function animate() {
     if (frame % 380 == 0) {
         initO()
     }
-
+ 
 }
 animate()
 
+replay.addEventListener('click', replayFn)
+function replayFn() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    replay.style.display = 'none'
+    gameover = false;
+    stop = false
+    dotsArr = []
+    obstalesArr = []
+    init()
+    score = 0
+    player.height = 93 / 2
+    player.y = canvas.height - player.height
+    console.log('replay')
+    animate()
+}
 player.onclick = function () {
     console.log('boo')
 }
@@ -110,11 +125,13 @@ function collisionDots() {
         }
     }
     for (let i = 0; i < obstalesArr.length; i++) {
-
+        if (obstalesArr[i].y >= canvas.height) {
+            obstalesArr.splice(i, 1)
+        }
         if (obstalesArr[i].y > (player.y - player.height) &&
             ((player.x > obstalesArr[i].x && player.x < obstalesArr[i].x + obstalesArr[i].width) ||
             player.x + player.width > obstalesArr[i].x && obstalesArr[i].x > player.x)) {
-            player.height -= obstalesArr[i].weight *2
+            player.height -= obstalesArr[i].weight * 2
             player.y += obstalesArr[i].weight*2
             gameover = true;
             if (player.height < 3) {
@@ -122,10 +139,9 @@ function collisionDots() {
                 stop = true
                 gameoverFn()
             }
+            
 
         }
-        if (obstalesArr[i].y >= canvas.height) {
-            obstalesArr.splice(i, 1)
-        }
+
     }
 }

@@ -7,7 +7,7 @@ class Dot {
         this.y = 0
         this.width = this.random * 533 / 15 + 20
         this.height =this.random * 465 / 15 + 20
-        this.weight = this.random * 2 + 0.5
+        this.weight = 2 - this.random * 2 + 0.5
     }
     update() {
         this.y += this.weight

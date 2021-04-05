@@ -4,12 +4,30 @@
     background-size: cover;
     background-position: center 10%*/
 }
+
+#canvasMain {
+    position:absolute;
+    top:0;
+    left:0;
+    width:60%;
+    height: 100%
+}
 #canvas1 {
     position: absolute;
-    top: 0;
+    top: 2;
     left: 60%;
    // transform: translate(-50%,-50%);
-    width: 40%;
-    height: 100%;
-   // border: 2px solid black;
+    width: 39%;
+    height: 96%;
+    border-radius:5%;
+    border: 6px solid white;
+}
+
+#replay {
+    position:absolute;
+    top:50%;
+    right: 26%;
+    color: green;
+    display: none;
+    cursor: pointer;
 }
