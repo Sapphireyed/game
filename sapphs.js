@@ -13,7 +13,6 @@ class Dot {
         this.y += this.weight
     }
     draw(item) {
-        console.log(this.weight)
         const sapphire = new Image()
         sapphire.src = item
         ctx.drawImage(sapphire, this.x, this.y, this.width, this.height)

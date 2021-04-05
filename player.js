@@ -14,10 +14,10 @@ class Player {
     moveRight() {
         this.x += 3
         if (this.x + this.width >= canvas.width) {
-            this.x = canvas.width - this.size
+            this.x = canvas.width - this.width
         }
     }
-    moveUp() {
+    /*moveUp() {
         this.y -= 3
         if (this.y + this.height <= 0) {
             this.y = 0
@@ -28,10 +28,10 @@ class Player {
         if (this.y + this.height >= canvas.height) {
             this.y = canvas.height - this.height
         }
-    }
-    draw() {
+    }*/
+    draw(src) {
         const avatar = new Image();
-        avatar.src = 'img/avatarRight.png'
+        avatar.src = src
         ctx.drawImage(avatar, this.x, this.y, this.width,this.height)
     }
 }
