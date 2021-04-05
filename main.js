@@ -71,9 +71,9 @@ function animate() {
     //ctx.fillStyle = 'white';
     ctx.font = '60px Georgia'
     ctx.lineWidth = '5px'
-    ctx.strokeText(score, canvas.width - 50, 60)
+    ctx.strokeText(score, canvas.width - 100, 60)
     ctx.fillStyle = '#35b5fd'
-    ctx.fillText(score, canvas.width - 50, 60)
+    ctx.fillText(score, canvas.width - 100, 60)
 
 
     collisionDots()
@@ -92,6 +92,9 @@ function animate() {
 }
 animate()
 
+player.onclick = function () {
+    console.log('boo')
+}
 function collisionDots() {
     for (let i = 0; i < dotsArr.length; i++) {
         if (dotsArr[i].y >= canvas.height) {
@@ -117,6 +120,7 @@ function collisionDots() {
             if (player.height < 3) {
                 obstalesArr.splice(i, 1)
                 stop = true
+                gameoverFn()
             }
 
         }
