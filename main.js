@@ -125,13 +125,11 @@ function collisionDots() {
         }
     }
     for (let i = 0; i < obstalesArr.length; i++) {
-        if (obstalesArr[i].y >= canvas.height) {
-            obstalesArr.splice(i, 1)
-        }
+
         if (obstalesArr[i].y > (player.y - player.height) &&
             ((player.x > obstalesArr[i].x && player.x < obstalesArr[i].x + obstalesArr[i].width) ||
             player.x + player.width > obstalesArr[i].x && obstalesArr[i].x > player.x)) {
-            player.height -= obstalesArr[i].weight * 2
+            player.height -= obstalesArr[i].weight *2
             player.y += obstalesArr[i].weight*2
             gameover = true;
             if (player.height < 3) {
@@ -139,9 +137,10 @@ function collisionDots() {
                 stop = true
                 gameoverFn()
             }
-            
 
         }
-
+        if (obstalesArr[i].y >= canvas.height) {
+            obstalesArr.splice(i, 1)
+        }
     }
 }
