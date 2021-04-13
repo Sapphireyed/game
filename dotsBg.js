@@ -24,12 +24,22 @@ class dotBg {
     move() {
         this.x += this.speedX
         this.y += this.speedY
+        let dx = this.x - mouse.x
+        let dy = this.y - mouse.y
+        let distance = Math.sqrt(dx * dx + dy * dy)
+        let forceDirectionX = dx / distance;
+        let forceDirectionY = dy / distance;
+        let force = (mouse.radius - distance) / mouse.radius
+        if (distance < mouse.radius) {
+            this.x += forceDirectionX * force * this.size
+            this.y += forceDirectionY * force * this.size
+        }
     }
 }
 
 let dotsBgArr = []
 function initBg() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 120; i++) {
         dotsBgArr.push(new dotBg)
     }
 }

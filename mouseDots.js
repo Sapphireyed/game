@@ -7,7 +7,8 @@ let hue = 180;
 let brig = 30
 let mouse = {
     x: null,
-    y:null
+    y: null,
+    radius: 150
 }
 
 let mouseDots = []
