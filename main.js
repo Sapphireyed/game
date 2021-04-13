@@ -1,7 +1,7 @@
 let canvas = document.getElementById('canvas1')
 let ctx = canvas.getContext('2d')
 
-canvas.width = window.innerWidth * 0.4
+canvas.width = window.innerWidth * 0.39
 canvas.height = window.innerHeight
 
 let frame = 0;
