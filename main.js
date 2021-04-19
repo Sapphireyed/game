@@ -1,3 +1,6 @@
+document.body.style.width = window.innerWidth + 'px';
+document.body.style.height = window.innerHeight + 'px'
+
 let canvas = document.getElementById('canvas1')
 let ctx = canvas.getContext('2d')
 

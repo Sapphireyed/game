@@ -1,4 +1,4 @@
-let color = ['rgba(0,0,255,.8)', 'rgba(255,255,255,.8)', 'silver', 'darkblue']
+let color = ['rgba(0,0,255,.9)', 'rgba(255,255,255,.9)', 'silver', 'darkblue']
 class dotBg {
     constructor() {
         this.x = Math.random() * canvasMain.width
@@ -34,13 +34,34 @@ class dotBg {
             this.x += forceDirectionX * force * this.size
             this.y += forceDirectionY * force * this.size
         }
+
     }
 }
 
 let dotsBgArr = []
 function initBg() {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 60; i++) {
         dotsBgArr.push(new dotBg)
+    }
+}
+// check if particles are close enough to draw line between them
+function connect() {
+    let opacityValue = 1;
+    for (let a = 0; a < dotsBgArr.length; a++) {
+        for (let b = a; b < dotsBgArr.length; b++) {
+            let distance = ((dotsBgArr[a].x - dotsBgArr[b].x) * (dotsBgArr[a].x - dotsBgArr[b].x))
+                + ((dotsBgArr[a].y - dotsBgArr[b].y) * (dotsBgArr[a].y - dotsBgArr[b].y));
+            if (distance < (canvasMain.width / 17) * (canvasMain.height / 17)) {
+                opacityValue = 1 - (distance / 10000);
+                ctxMain.strokeStyle = 'rgba(255,255,255,' + opacityValue + ')';
+                ctxMain.beginPath();
+                ctxMain.lineWidth = 1;
+                ctxMain.moveTo(dotsBgArr[a].x, dotsBgArr[a].y);
+                ctxMain.lineTo(dotsBgArr[b].x, dotsBgArr[b].y);
+                ctxMain.stroke();
+
+            }
+        }
     }
 }
 let small;
@@ -63,6 +84,7 @@ function animateBg() {
         }
         small == true ? dotsBgArr[i].grow() : dotsBgArr[i].shrink()
         dotsBgArr[i].draw()
+    //    connect()
     }
     requestAnimationFrame(animateBg)
 }
