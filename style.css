@@ -1,11 +1,16 @@
 ﻿body {
     background-color: black;
-    overflow:hidden;
+    overflow: hidden;
+    cursor: url('img/cursorSapph.png'), auto;
     /*background-image: url('img/space1.png');
     background-size: cover;
     background-position: center 10%*/
 }
-
+a {
+    text-decoration: none;
+    color: white;
+    cursor: url('img/cursorSapphClick.png'), auto;
+}
 #canvasMain {
     position:absolute;
     top:0;
@@ -35,7 +40,7 @@ h1:not(#replay) {
 }
 
 
-#canvas1 {
+.canvasOnRight {
     position: absolute;
     top: 2%;
     left: 60%;
@@ -73,8 +78,11 @@ h1:not(#replay) {
 #buttons button:nth-child(3) {
     background: linear-gradient(50deg, rgba(243,243,255,1) 8%, rgba(88,88,199,1) 29%, rgba(20,22,109,1) 53%, rgba(8,10,86,1) 80%, rgba(0,2,42,1) 99%); 
 }
+#buttons button:hover {
+    cursor: url('img/cursorSapphClick.png'), auto;
+}
 #buttons button:nth-child(1):hover {
-    animation: gradientLeft 0.6s 
+    animation: gradientLeft 0.6s;
 }
     #buttons button:nth-child(2):hover {
         animation: gradientCenter 0.6s

@@ -1,4 +1,4 @@
-let sapphs = ['img/logo.png', 'img/logoBlue.png', 'img/logoPurp.png']
+let sapphs = ['img/logo3.png', 'img/logoBlue.png', 'img/logoPurp.png']
 
 class Dot {
     constructor() {
